@@ -75,7 +75,6 @@ function PortfolioContent() {
         "PayPal",
         "Stripe",
       ],
-      github: "https://github.com",
       live: "https://web-app-iota-three.vercel.app",
       featured: true,
       category: "Web Development",
@@ -92,8 +91,7 @@ function PortfolioContent() {
         "Atomic Design",
         "Tailwind",
       ],
-      github: "https://github.com",
-      live: "https://example.com",
+      live: "",
       featured: true,
       category: "Web Devolpment",
     },
@@ -209,24 +207,6 @@ function PortfolioContent() {
 
       {/* Floating 3D Tech Icon */}
 
-      {/* Advanced Mouse Follower */}
-      <motion.div
-        className={`fixed w-8 h-8 ${currentTheme.accent} rounded-full pointer-events-none z-50 mix-blend-screen`}
-        style={{
-          left: mousePosition.x - 16,
-          top: mousePosition.y - 16,
-        }}
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.6, 1, 0.6],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      />
-
       {/* Navigation */}
       <motion.nav
         initial={{ y: -100 }}
@@ -280,17 +260,6 @@ function PortfolioContent() {
               <div className="text-white/60 text-sm hidden lg:block">
                 <CurrentTime />
               </div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  className={`bg-gradient-to-r ${currentTheme.buttonGradient} text-white border-0 shadow-lg ${currentTheme.shadow}`}
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Resume
-                </Button>
-              </motion.div>
             </div>
           </div>
         </div>
@@ -499,11 +468,13 @@ function PortfolioContent() {
                 whileHover={{ y: -10, scale: 1.02 }}
               >
                 <Card className="bg-white/5 border-white/10 backdrop-blur-xl overflow-hidden group hover:bg-white/10 transition-all duration-500 h-full relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20" />
+                  {/* Fondo visual */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20 pointer-events-none" />
 
-                  <div className="relative">
+                  {/* Imagen */}
+                  <div className="relative z-10">
                     <Image
-                      src={project.image || "/placeholde.jpg"}
+                      src={project.image || "/placeholder.jpg"}
                       alt={project.title}
                       width={500}
                       height={300}
@@ -512,13 +483,13 @@ function PortfolioContent() {
                     <div
                       className={`absolute inset-0 bg-gradient-to-r ${currentTheme.accent} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
                     />
-
                     <Badge className="absolute top-4 right-4 bg-black/50 text-white border-0 backdrop-blur-sm">
                       {project.category}
                     </Badge>
                   </div>
 
-                  <CardHeader>
+                  {/* Contenido */}
+                  <CardHeader className="z-10 relative">
                     <CardTitle className="text-white text-xl">
                       {project.title}
                     </CardTitle>
@@ -527,46 +498,36 @@ function PortfolioContent() {
                     </CardDescription>
                   </CardHeader>
 
-                  <CardContent className="space-y-4">
+                  <CardContent className="space-y-4 z-10 relative">
+                    {/* Tecnologías */}
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, techIndex) => (
-                        <motion.div
+                        <Badge
                           key={techIndex}
-                          whileHover={{ scale: 1.05 }}
+                          className="bg-white/10 text-white/90 border-white/20 hover:bg-white/20 transition-colors"
                         >
-                          <Badge className="bg-white/10 text-white/90 border-white/20 hover:bg-white/20 transition-colors">
-                            {tech}
-                          </Badge>
-                        </motion.div>
+                          {tech}
+                        </Badge>
                       ))}
                     </div>
 
+                    {/* Botones */}
                     <div className="flex space-x-4">
-                      <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                      {/* Experience */}
+                      <Button
+                        asChild
+                        size="sm"
+                        className={`bg-gradient-to-r ${currentTheme.buttonGradient} text-white border-0 shadow-lg flex items-center gap-2`}
                       >
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="border-white/20 text-white hover:bg-white/10 bg-transparent"
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
-                          <Github className="w-4 h-4 mr-2" />
-                          Source
-                        </Button>
-                      </motion.div>
-                      <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Button
-                          size="sm"
-                          className={`bg-gradient-to-r ${currentTheme.buttonGradient} text-white border-0 shadow-lg`}
-                        >
-                          <ExternalLink className="w-4 h-4 mr-2" />
+                          <ExternalLink className="w-4 h-4" />
                           Experience
-                        </Button>
-                      </motion.div>
+                        </a>
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
