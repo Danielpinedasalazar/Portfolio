@@ -34,12 +34,12 @@ const projects = [
     category: "Web Development",
   },
   {
-    title: "Performance System",
-    description: "This is an app that let you rate tour employees",
-    image: "/placeholder.svg?height=300&width=500",
+    title: "Comming Soon ...",
+    description: "...",
+    image: "/coming-soon.jpg?height=300&width=500",
     technologies: [
       "Next.js",
-      "TypeScript",
+      "NestJS",
       "Prisma",
       "Auth0",
       "Atomic Design",
