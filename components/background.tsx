@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import { useTheme } from "./theme-provider";
-import Orbs from "./orbs";
+//import Orbs from "./orbs";
 
 export default function Background() {
-  const { theme, setTheme, themes } = useTheme();
+  const { theme, themes } = useTheme();
   const currentTheme = themes[theme];
   return (
     <div className="fixed inset-0 z-0">
@@ -26,7 +26,7 @@ export default function Background() {
       />
 
       {/* Animated Gradient Orbs */}
-      <Orbs />
+      {/*<Orbs />*/}
 
       {/* Mesh Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-black/10 to-transparent" />

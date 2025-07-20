@@ -28,7 +28,7 @@ export default function PortfolioContent() {
       className="min-h-screen overflow-hidden relative transition-all duration-1000"
     >
       <Background />
-      <ParticleField theme={currentTheme} />
+      {/*<ParticleField theme={currentTheme} />*/}
       <Navigation />
       <HeroSection />
       <ProjectSection />
