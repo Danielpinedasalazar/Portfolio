@@ -9,26 +9,56 @@ const skills = [
   {
     category: "Frontend",
     icon: Cpu,
-    items: ["Next.js", "React", "Shadcn", "TailwindCSS"],
+    items: [
+      "Next.js",
+      "React",
+      "Shadcn",
+      "TailwindCSS",
+      "Uploadthing",
+      "Framer Motion",
+    ],
   },
   {
     category: "Backend",
     icon: Layers,
-    items: ["Next.js", "Prisma", "PostgreSQL", "ZOD", "NestJS"],
+    items: [
+      "Next.js",
+      "Prisma",
+      "PostgreSQL",
+      "ZOD",
+      "NestJS",
+      "Suoabase",
+      "Neon",
+      "JWT",
+      "Rest API",
+      "Next-Auth",
+      "Auth0",
+    ],
   },
   {
     category: "Languages",
     icon: Zap,
-    items: ["TypeScript", "JavaScript", "SQL", "HTML", "Java with SpringBoot"],
+    items: [
+      "TypeScript",
+      "JavaScript",
+      "SQL",
+      "HTML",
+      "Java with Spring Boot",
+      "CSS",
+    ],
   },
   {
-    category: "Coming Soon",
+    category: "In Process",
     icon: Globe,
     items: [
-      "FullStack app with Next.js and NestJs",
+      "Azure",
       "Python",
-      "ReactNative",
+      "React Native",
       "AWS",
+      "Angular",
+      "Rust",
+      "Go",
+      "Swift",
     ],
   },
 ];
@@ -55,7 +85,8 @@ export default function Skills() {
             Behind The Code
           </h2>
           <p className="text-white/80 text-xl max-w-4xl mx-auto">
-            Technologies I've use to build modern, scalable applications.
+            Technologies I've use to build modern, scalable applications. And
+            also some others laguages that I'm starting with
           </p>
         </motion.div>
 

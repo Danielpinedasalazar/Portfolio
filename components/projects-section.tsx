@@ -18,7 +18,7 @@ const projects = [
   {
     title: "Modern E-Commerce App",
     description:
-      "Full-stack modern e-commerce app, with a very tech design and user firendly",
+      "This is a full-stack E-commerce app built on Next.js, in which users will be able to find products such as accessories or computers, it will also have different payment methods between cash on delivery, PayPal and Stripe (For credit and debit cards). It also has an admin section, in which only authorized people can enter. If you are not logged in yet and try to make a purchase, you will be asked to create an account or login at checkout. Below in the experience button you can take a look at this app built with modern technologies.",
     image: "/project-1.jpg?height=300&width=500",
     technologies: [
       "Next.js",
@@ -28,6 +28,7 @@ const projects = [
       "Shadcn",
       "PayPal",
       "Stripe",
+      "SQL",
     ],
     live: "https://web-app-iota-three.vercel.app",
     featured: true,
