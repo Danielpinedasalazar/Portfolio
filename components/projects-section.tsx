@@ -41,7 +41,7 @@ const projects = [
   {
     title: "Comming Soon ...",
     description:
-      "I'm developing a complete and scalable REST API for a blogging platform using the NestJS framework, focusing on best practices, security and modular architecture. The API allows users to register, login (with JWT or Google OAuth), create posts, manage media files and consume data documented with Swagger.This project was designed to simulate a real production environment, with support for multiple environments, exception handling, robust data validation, complex database relationships and professional cloud deployment. Unit and end-to-end tests were implemented to ensure system reliability.The backend is ready to be consumed by any frontend (web or mobile), and is optimized to scale and maintain in large development teams through internal documentation (Compodoc).",
+      "I'm developing a complete and scalable REST API for a blogging platform using the NestJS framework, focusing on best practices, security and modular architecture. The API allows users to register, login (with JWT or Google OAuth), create posts, manage media files and consume data documented with Swagger.This project was designed to simulate a real production environment, with support for multiple environments, exception handling, robust data validation, complex database relationships and professional cloud deployment. Unit and end-to-end tests were implemented to ensure system reliability.The backend will be ready to be consumed by any frontend (web or mobile), and is optimized to scale and maintain in large development teams through internal documentation (Compodoc).",
     image: "/coming-soon.jpg?height=300&width=500",
     technologies: [
       "NestJS",
