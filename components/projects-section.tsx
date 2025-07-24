@@ -52,7 +52,7 @@ const projects = [
       "Compodoc",
       "JWT",
       "Google OAuth 2.0",
-      "Amazon Web Services (AWS)",
+      "Amazon Web Services",
       "Jest",
     ],
     featured: true,
