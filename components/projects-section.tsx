@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Badge } from "./ui/badge";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react"; // <-- se añadió Github
 import { Button } from "./ui/button";
 import { useTheme } from "./theme-provider";
 import {
@@ -35,6 +35,7 @@ const projects = [
       "Resend",
     ],
     live: "https://web-app-iota-three.vercel.app",
+    github: "https://github.com/Danielpinedasalazar/WebApp.git",
     featured: true,
     category: "Web Development",
   },
@@ -63,6 +64,7 @@ const projects = [
 export default function ProjectSection() {
   const { theme, setTheme, themes } = useTheme();
   const currentTheme = themes[theme];
+
   return (
     <section id="projects" className="relative py-20 px-4 sm:px-6 lg:px-8 z-10">
       <div className="max-w-7xl mx-auto">
@@ -98,10 +100,8 @@ export default function ProjectSection() {
               whileHover={{ y: -10, scale: 1.02 }}
             >
               <Card className="bg-white/5 border-white/10 backdrop-blur-xl overflow-hidden group hover:bg-white/10 transition-all duration-500 h-full relative">
-                {/* Fondo visual */}
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20 pointer-events-none" />
 
-                {/* Imagen */}
                 <div className="relative z-10">
                   <Image
                     src={project.image || "/placeholder.jpg"}
@@ -118,7 +118,6 @@ export default function ProjectSection() {
                   </Badge>
                 </div>
 
-                {/* Contenido */}
                 <CardHeader className="z-10 relative">
                   <CardTitle className="text-white text-xl">
                     {project.title}
@@ -129,7 +128,6 @@ export default function ProjectSection() {
                 </CardHeader>
 
                 <CardContent className="space-y-4 z-10 relative">
-                  {/* Tecnologías */}
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
                       <Badge
@@ -141,7 +139,6 @@ export default function ProjectSection() {
                     ))}
                   </div>
 
-                  {/* Botones */}
                   <div className="flex space-x-4">
                     {/* Experience */}
                     <Button
@@ -158,6 +155,24 @@ export default function ProjectSection() {
                         Experience
                       </a>
                     </Button>
+
+                    {/* GitHub */}
+                    {project.github && (
+                      <Button
+                        asChild
+                        size="sm"
+                        className="bg-white/10 text-white border-white/20 hover:bg-white/20 transition-colors flex items-center gap-2"
+                      >
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Github className="w-4 h-4" />
+                          GitHub
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>
