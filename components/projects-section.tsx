@@ -1,64 +1,77 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Badge } from "./ui/badge";
-import { ExternalLink, Github } from "lucide-react"; // <-- se añadió Github
-import { Button } from "./ui/button";
-import { useTheme } from "./theme-provider";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "./ui/card";
-import Image from "next/image";
+import { motion } from 'framer-motion';
+import { ExternalLink, Github } from 'lucide-react'; // <-- se añadió Github
+import Image from 'next/image';
+import { useTheme } from './theme-provider';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 
 const projects = [
   {
-    title: "Modern E-Commerce App",
+    title: 'Modern E-Commerce App',
     description:
-      "This is a full-stack E-commerce app built on Next.js, in which users will be able to find products such as accessories or computers, it will also have different payment methods between cash on delivery, PayPal and Stripe (For credit and debit cards). It also has an admin section, in which only authorized people can enter. If you are not logged in yet and try to make a purchase, you will be asked to create an account or login at checkout. Below in the experience button you can take a look at this app built with modern technologies.",
-    image: "/project-1.jpg?height=300&width=500",
+      'This is a full-stack E-commerce app built on Next.js, in which users will be able to find products such as accessories or computers, it will also have different payment methods between cash on delivery, PayPal and Stripe (For credit and debit cards). It also has an admin section, in which only authorized people can enter. If you are not logged in yet and try to make a purchase, you will be asked to create an account or login at checkout. Below in the experience button you can take a look at this app built with modern technologies.',
+    image: '/project-1.jpg?height=300&width=500',
     technologies: [
-      "Next.js",
-      "TypeScript",
-      "Prisma",
-      "ZOD",
-      "Shadcn",
-      "PayPal",
-      "Stripe",
-      "SQL",
-      "Jest",
-      "Uploadthing",
-      "Recharts",
-      "Resend",
+      'Next.js',
+      'TypeScript',
+      'Prisma',
+      'ZOD',
+      'Shadcn',
+      'PayPal',
+      'Stripe',
+      'SQL',
+      'Jest',
+      'Uploadthing',
+      'Recharts',
+      'Resend',
     ],
-    live: "https://web-app-iota-three.vercel.app",
-    github: "https://github.com/Danielpinedasalazar/WebApp.git",
+    live: 'https://web-app-iota-three.vercel.app',
+    github: 'https://github.com/Danielpinedasalazar/WebApp.git',
     featured: true,
-    category: "Web Development",
+    category: 'Web Development',
   },
   {
-    title: "NestJS Blogs",
+    title: 'NestJS Blogs',
     description:
       "I've developed a complete and scalable REST API for a blogging platform using the NestJS framework, focusing on best practices, security and modular architecture. The API allows users to register, login (with JWT or Google OAuth), create posts, manage media files and consume data documented with Swagger.This project was designed to simulate a real production environment, with support for multiple environments, exception handling, robust data validation, complex database relationships and professional cloud deployment. Unit and end-to-end tests were implemented to ensure system reliability.The backend is now ready to be consumed by any frontend (web or mobile), and is optimized to scale and maintain in large development teams through internal documentation (Compodoc).",
-    image: "/project-2.jpg?height=300&width=500",
+    image: '/project-2.jpg?height=300&width=500',
     technologies: [
-      "NestJS",
-      "TypeORM",
-      "PostgreSQL",
-      "Swagger",
-      "Compodoc",
-      "JWT",
-      "Google OAuth 2.0",
-      "Amazon Web Services",
-      "Jest",
+      'NestJS',
+      'TypeORM',
+      'PostgreSQL',
+      'Swagger',
+      'Compodoc',
+      'JWT',
+      'Google OAuth 2.0',
+      'Amazon Web Services',
+      'Jest',
     ],
-    live: "http://ec2-3-138-192-158.us-east-2.compute.amazonaws.com/api#/",
-    github: "https://github.com/Danielpinedasalazar/BlogPosts.git",
+    live: 'http://ec2-3-138-192-158.us-east-2.compute.amazonaws.com/api#/',
+    github: 'https://github.com/Danielpinedasalazar/BlogPosts.git',
     featured: true,
-    category: "Web Devolpment",
+    category: 'Web Devolpment',
+  },
+  {
+    title: 'Modern E-Commerce App',
+    description:
+      'I’m developing a full-stack Airline Booking Application with a robust backend in Java Spring Boot and a dynamic React SPA frontend, designed to simulate an enterprise-grade production environment. The backend provides a complete set of RESTful APIs for flights, bookings, and user management, integrated with MySQL/PostgreSQL for data persistence and secured with Spring Security and JWT for authentication and role-based authorization (Customer, Admin, Pilot). It also includes automated email notifications for booking confirmations and password resets. On the frontend, I am building a responsive single-page application with reusable React components, efficient state management, and seamless API integration to deliver features such as flight search and filtering, seat reservation, booking management, user profiles, admin dashboards, and pilot-specific tools. This project emphasizes best practices in scalability, security, and maintainability, providing hands-on expertise in end-to-end full-stack development and showcasing the ability to deliver real-world, production-ready applications.',
+    image: '/comming-soon.jpg?height=300&width=500',
+    technologies: [
+      'Spring Boot',
+      'Java',
+      'MySQL',
+      'React',
+      'PostgreSQL',
+      'JavaScript',
+      'JWT',
+      'Vite',
+      'SQL',
+    ],
+    featured: true,
+    category: 'Web Development',
   },
 ];
 
@@ -81,12 +94,12 @@ export default function ProjectSection() {
               className={`bg-gradient-to-r ${currentTheme.textGradient} bg-clip-text text-transparent`}
             >
               My Projects
-            </span>{" "}
+            </span>{' '}
             Right Now
           </h2>
           <p className="text-white/80 text-xl max-w-4xl mx-auto">
-            Revolutionary applications that transcend current technological
-            limitations and redefine the boundaries of digital reality.
+            Revolutionary applications that transcend current technological limitations and redefine
+            the boundaries of digital reality.
           </p>
         </motion.div>
 
@@ -105,7 +118,7 @@ export default function ProjectSection() {
 
                 <div className="relative z-10">
                   <Image
-                    src={project.image || "/placeholder.jpg"}
+                    src={project.image || '/placeholder.jpg'}
                     alt={project.title}
                     width={500}
                     height={300}
@@ -120,9 +133,7 @@ export default function ProjectSection() {
                 </div>
 
                 <CardHeader className="z-10 relative">
-                  <CardTitle className="text-white text-xl">
-                    {project.title}
-                  </CardTitle>
+                  <CardTitle className="text-white text-xl">{project.title}</CardTitle>
                   <CardDescription className="text-white/80 text-base">
                     {project.description}
                   </CardDescription>
@@ -147,11 +158,7 @@ export default function ProjectSection() {
                       size="sm"
                       className={`bg-gradient-to-r ${currentTheme.buttonGradient} text-white border-0 shadow-lg flex items-center gap-2`}
                     >
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href={project.live} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="w-4 h-4" />
                         Experience
                       </a>
@@ -164,11 +171,7 @@ export default function ProjectSection() {
                         size="sm"
                         className="bg-white/10 text-white border-white/20 hover:bg-white/20 transition-colors flex items-center gap-2"
                       >
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
                           <Github className="w-4 h-4" />
                           GitHub
                         </a>
