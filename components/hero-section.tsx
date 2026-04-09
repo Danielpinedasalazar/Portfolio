@@ -2,171 +2,207 @@
 
 import { motion } from "framer-motion";
 import { Badge } from "./ui/badge";
-import { Zap, Github, Linkedin, Mail } from "lucide-react";
+import { Download, Github, Linkedin, Mail } from "lucide-react";
+import { Button } from "./ui/button";
 import Image from "next/image";
 import { useTheme } from "./theme-provider";
 
+const techBadges = [
+  {
+    label: "TypeScript",
+    style: { top: "-20px", left: "50%", transform: "translateX(-50%)" },
+    delay: 0,
+  },
+  { label: "AWS", style: { top: "12%", right: "-96px" }, delay: 0.5 },
+  { label: "Python", style: { bottom: "14%", right: "-84px" }, delay: 1.0 },
+  {
+    label: "Next.js",
+    style: { bottom: "-20px", left: "50%", transform: "translateX(-50%)" },
+    delay: 1.5,
+  },
+  { label: "NestJS", style: { bottom: "14%", left: "-80px" }, delay: 2.0 },
+  { label: "React", style: { top: "12%", left: "-72px" }, delay: 2.5 },
+];
+
 export default function HeroSection() {
-  const { theme, setTheme, themes } = useTheme();
+  const { theme, themes } = useTheme();
   const currentTheme = themes[theme];
+
   return (
-    <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 z-10">
+    <section
+      id="about"
+      className="relative pt-28 sm:pt-36 pb-24 px-4 sm:px-6 lg:px-8 z-10"
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left — text */}
           <motion.div
-            className="space-y-8"
-            initial={{ opacity: 0, x: -50 }}
+            className="space-y-8 order-2 lg:order-1"
+            initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
           >
-            <div className="space-y-6">
+            <div className="space-y-5">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <Badge
-                  className={`bg-gradient-to-r ${currentTheme.badgeGradient} text-white border-0 shadow-lg ${currentTheme.shadow}`}
-                >
-                  <Zap className="w-3 h-3 mr-1" />
-                  Software Developer
-                </Badge>
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-300 text-xs font-medium tracking-wide">
+                  <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
+                  Open to International Internships
+                </span>
               </motion.div>
 
               <motion.h1
-                className="text-6xl lg:text-8xl font-bold text-white leading-tight"
+                className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                Meet The
-                <motion.span
+                Hi, I&apos;m
+                <span
                   className={`block bg-gradient-to-r ${currentTheme.textGradient} bg-clip-text text-transparent`}
-                  animate={{
-                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "linear",
-                  }}
-                  style={{ backgroundSize: "200% 200%" }}
                 >
-                  Developer
-                </motion.span>
+                  Daniel Pineda
+                </span>
               </motion.h1>
 
               <motion.p
-                className="text-xl text-white/80 leading-relaxed max-w-lg"
+                className="text-white/60 text-base sm:text-lg leading-relaxed max-w-lg"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                I'm a Systems Engineering student with strong skills in
-                full-stack web and mobile development, passionate about building
-                scalable, real-world applications. I specialize in TypeScript,
-                React, Next.js, and NestJS, with solid backend experience using
-                PostgreSQL, Prisma, and RESTful APIs, and I'm comfortable
-                integrating tools such as Auth0, NextAuth, Stripe, PayPal, and
-                Shadcn UI.
+                Systems Engineering student specializing in{" "}
+                <span className="text-white/85 font-medium">
+                  full-stack development and machine learning
+                </span>
+                . TypeScript, React, Next.js &amp; NestJS in production — plus
+                Python for{" "}
+                <span className="text-white/85 font-medium">
+                  regression, classification, time series &amp; clustering
+                </span>
+                .
               </motion.p>
             </div>
 
             <motion.div
-              className="flex space-x-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
+              className="flex flex-wrap items-center gap-4"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55 }}
             >
-              {[
-                {
-                  icon: Github,
-                  href: "https://github.com/Danielpinedasalazar",
-                  label: "Code Repository",
-                },
-                {
-                  icon: Linkedin,
-                  href: "https://www.linkedin.com/in/daniel-pineda-2b7204341",
-                  label: "Professional Network",
-                },
-                {
-                  icon: Mail,
-                  href: "mailto:daniel.pineda73@eia.edu.co",
-                  label: "Direct Communication",
-                },
-              ].map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
-                  className="text-white/60 hover:text-white transition-colors group relative"
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <social.icon className="w-6 h-6" />
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                    {social.label}
-                  </div>
-                </motion.a>
-              ))}
+              <Button
+                asChild
+                size="sm"
+                className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white border-0 shadow-lg shadow-violet-500/20"
+              >
+                <a href="/cv.pdf" download>
+                  <Download className="w-4 h-4 mr-2" />
+                  Download CV
+                </a>
+              </Button>
+
+              <div className="flex items-center gap-5">
+                {[
+                  {
+                    icon: Github,
+                    href: "https://github.com/Danielpinedasalazar",
+                    label: "GitHub",
+                  },
+                  {
+                    icon: Linkedin,
+                    href: "https://www.linkedin.com/in/daniel-pineda-2b7204341",
+                    label: "LinkedIn",
+                  },
+                  {
+                    icon: Mail,
+                    href: "mailto:daniel.pineda73@eia.edu.co",
+                    label: "Email",
+                  },
+                ].map((social) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="text-white/40 hover:text-white transition-colors group relative"
+                    whileHover={{ scale: 1.2, y: -2 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <social.icon className="w-5 h-5" />
+                    <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-white/10">
+                      {social.label}
+                    </span>
+                  </motion.a>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
 
+          {/* Right — profile image with floating badges */}
           <motion.div
-            className="relative"
-            initial={{ opacity: 0, scale: 0.8 }}
+            className="relative order-1 lg:order-2 flex justify-center"
+            initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
           >
-            <div className="relative w-96 h-96 mx-auto">
-              {/* Multiple rotating gradient rings */}
+            {/* Image container */}
+            <div className="relative w-60 h-60 sm:w-72 sm:h-72 lg:w-[360px] lg:h-[360px]">
+              {/* Glow rings */}
               <motion.div
-                className={`absolute inset-0 bg-gradient-to-r ${currentTheme.accent} rounded-full blur-3xl opacity-30`}
-                animate={{
-                  scale: [1, 1.2, 1],
-                  rotate: [0, 360],
-                }}
-                transition={{
-                  duration: 10,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "linear",
-                }}
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 blur-3xl opacity-25"
+                animate={{ scale: [1, 1.15, 1], rotate: [0, 360] }}
+                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
               />
               <motion.div
-                className={`absolute inset-4 bg-gradient-to-r ${currentTheme.secondary} rounded-full blur-2xl opacity-25`}
-                animate={{
-                  scale: [1.2, 1, 1.2],
-                  rotate: [360, 0],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "linear",
-                }}
-              />
-              <motion.div
-                className={`absolute inset-8 bg-gradient-to-r ${currentTheme.tertiary} rounded-full blur-xl opacity-40`}
-                animate={{
-                  scale: [1, 1.3, 1],
-                  rotate: [0, 180, 360],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "linear",
-                }}
+                className="absolute inset-4 rounded-full bg-gradient-to-r from-indigo-600 to-cyan-600 blur-2xl opacity-20"
+                animate={{ scale: [1.1, 1, 1.1], rotate: [360, 0] }}
+                transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
               />
 
-              <div className="relative w-full h-full bg-gradient-to-br from-slate-800/30 to-slate-900/30 rounded-full border border-white/10 overflow-hidden backdrop-blur-sm">
+              {/* Photo */}
+              <div className="relative w-full h-full rounded-full bg-gradient-to-br from-slate-800/40 to-slate-900/40 border border-violet-500/20 overflow-hidden backdrop-blur-sm shadow-2xl shadow-violet-900/40">
                 <Image
-                  src="/placeholder-user.jpg?height=384&width=384"
-                  alt="Profile"
+                  src="/placeholder-user.jpg"
+                  alt="Daniel Pineda"
                   width={384}
                   height={384}
                   className="w-full h-full object-cover"
+                  priority
                 />
-                <div
-                  className={`absolute inset-0 bg-gradient-to-t ${currentTheme.overlay}`}
-                />
+                <div className="absolute inset-0 bg-gradient-to-t from-violet-900/30 to-transparent" />
+              </div>
+
+              {/* Floating tech badges — desktop only */}
+              <div className="hidden lg:block">
+                {techBadges.map((badge) => (
+                  <motion.div
+                    key={badge.label}
+                    className="absolute"
+                    style={badge.style as React.CSSProperties}
+                    initial={{ opacity: 0, scale: 0.7 }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                      y: [0, -9, 0],
+                    }}
+                    transition={{
+                      opacity: { delay: badge.delay + 0.8, duration: 0.4 },
+                      scale: { delay: badge.delay + 0.8, duration: 0.4 },
+                      y: {
+                        delay: badge.delay + 0.8,
+                        duration: 3.2 + badge.delay * 0.3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      },
+                    }}
+                  >
+                    <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-[#0d0b1e]/80 border border-violet-500/30 text-white/85 text-[11px] font-medium backdrop-blur-md whitespace-nowrap shadow-lg shadow-violet-900/20">
+                      {badge.label}
+                    </span>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </motion.div>

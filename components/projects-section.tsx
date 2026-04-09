@@ -1,19 +1,18 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react'; // <-- se añadió Github
+import { Activity, ExternalLink, GitBranch, Github, Network, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import { useTheme } from './theme-provider';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 
 const projects = [
   {
     title: 'Modern E-Commerce App',
     description:
-      'This is a full-stack E-commerce app built on Next.js, in which users will be able to find products such as accessories or computers, it will also have different payment methods between cash on delivery, PayPal and Stripe (For credit and debit cards). It also has an admin section, in which only authorized people can enter. If you are not logged in yet and try to make a purchase, you will be asked to create an account or login at checkout. Below in the experience button you can take a look at this app built with modern technologies.',
-    image: '/project-1.jpg?height=300&width=500',
+      'Full-stack e-commerce platform with multi-payment support (PayPal, Stripe, cash on delivery), product catalog, and a protected admin dashboard. Features auth, order management, and real-time sales analytics.',
+    image: '/project-1.jpg',
     technologies: [
       'Next.js',
       'TypeScript',
@@ -22,53 +21,92 @@ const projects = [
       'Shadcn',
       'PayPal',
       'Stripe',
-      'SQL',
+      'PostgreSQL',
       'Jest',
-      'Uploadthing',
       'Recharts',
-      'Resend',
     ],
     live: 'https://web-app-iota-three.vercel.app',
     github: 'https://github.com/Danielpinedasalazar/WebApp.git',
-    featured: true,
     category: 'Web Development',
+    wide: true,
   },
   {
-    title: 'NestJS Blogs',
+    title: 'NestJS Blogs API',
     description:
-      "I've developed a complete and scalable REST API for a blogging platform using the NestJS framework, focusing on best practices, security and modular architecture. The API allows users to register, login (with JWT or Google OAuth), create posts, manage media files and consume data documented with Swagger.This project was designed to simulate a real production environment, with support for multiple environments, exception handling, robust data validation, complex database relationships and professional cloud deployment. Unit and end-to-end tests were implemented to ensure system reliability.The backend is now ready to be consumed by any frontend (web or mobile), and is optimized to scale and maintain in large development teams through internal documentation (Compodoc).",
-    image: '/project-2.jpg?height=300&width=500',
+      'Production-ready REST API for a blogging platform with JWT & Google OAuth, media via AWS, Swagger docs, and E2E tests deployed on AWS EC2.',
+    image: '/project-2.jpg',
     technologies: [
       'NestJS',
       'TypeORM',
       'PostgreSQL',
       'Swagger',
-      'Compodoc',
       'JWT',
-      'Google OAuth 2.0',
-      'Amazon Web Services',
+      'Google OAuth',
+      'AWS',
       'Jest',
     ],
     live: 'http://ec2-3-138-192-158.us-east-2.compute.amazonaws.com/api#/',
     github: 'https://github.com/Danielpinedasalazar/BlogPosts.git',
-    featured: true,
-    category: 'Web Devolpment',
+    category: 'Web Development',
+    wide: false,
   },
   {
     title: 'Airline Booking Application',
     description:
-      'I’m developing a full-stack Airline Booking Application with a robust backend in Java Spring Boot and a dynamic React SPA frontend, designed to simulate an enterprise-grade production environment. The backend provides a complete set of RESTful APIs for flights, bookings, and user management, integrated with MySQL/PostgreSQL for data persistence and secured with Spring Security and JWT for authentication and role-based authorization (Customer, Admin, Pilot). It also includes automated email notifications for booking confirmations and password resets. On the frontend, I am building a responsive single-page application with reusable React components, efficient state management, and seamless API integration to deliver features such as flight search and filtering, seat reservation, booking management, user profiles, admin dashboards, and pilot-specific tools. This project emphasizes best practices in scalability, security, and maintainability, providing hands-on expertise in end-to-end full-stack development and showcasing the ability to deliver real-world, production-ready applications.',
-    image: '/project-3.png?height=300&width=500',
-    technologies: ['Spring Boot', 'Java', 'MySQL', 'React', 'JavaScript', 'JWT', 'Vite', 'SQL'],
+      'Full-stack airline booking app — Spring Boot REST API + React SPA. Role-based access (Customer, Admin, Pilot), seat reservation, and automated email notifications.',
+    image: '/project-3.png',
+    technologies: ['Spring Boot', 'Java', 'MySQL', 'React', 'JavaScript', 'JWT', 'Vite'],
     live: 'https://daniel-airlines.vercel.app/home',
     github: 'https://github.com/Danielpinedasalazar/Booking-Flights.git',
-    featured: true,
     category: 'Web Development',
+    wide: false,
   },
 ];
 
+const mlProjects = [
+  {
+    title: 'Regression Models',
+    description:
+      'Predictive modeling with linear, polynomial and gradient boosting regression. Feature engineering, cross-validation, and performance evaluation on real datasets.',
+    icon: TrendingUp,
+    gradient: 'from-violet-600/20 to-indigo-600/10',
+    iconColor: 'text-violet-400',
+    technologies: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Matplotlib'],
+  },
+  {
+    title: 'Classification Models',
+    description:
+      'Binary and multiclass classifiers using Random Forest, SVM, XGBoost, and neural networks. Metrics: precision, recall, F1, ROC-AUC.',
+    icon: GitBranch,
+    gradient: 'from-indigo-600/20 to-blue-600/10',
+    iconColor: 'text-indigo-400',
+    technologies: ['Python', 'Scikit-learn', 'TensorFlow', 'Seaborn', 'Jupyter'],
+  },
+  {
+    title: 'Time Series Forecasting',
+    description:
+      'Temporal data analysis and forecasting with ARIMA, Prophet, and LSTM networks. Stationarity tests, decomposition, and multi-step ahead prediction.',
+    icon: Activity,
+    gradient: 'from-blue-600/20 to-cyan-600/10',
+    iconColor: 'text-blue-400',
+    technologies: ['Python', 'Pandas', 'Statsmodels', 'Keras', 'Matplotlib'],
+  },
+  {
+    title: 'Clustering & Segmentation',
+    description:
+      'Unsupervised learning with K-Means, DBSCAN, and hierarchical clustering. Dimensionality reduction via PCA and t-SNE for pattern discovery.',
+    icon: Network,
+    gradient: 'from-cyan-600/20 to-teal-600/10',
+    iconColor: 'text-cyan-400',
+    technologies: ['Python', 'Scikit-learn', 'Pandas', 'Seaborn', 'Jupyter'],
+  },
+];
+
+const cardBase =
+  'bg-white/[0.03] border border-white/[0.07] backdrop-blur-xl overflow-hidden group transition-all duration-500 hover:bg-white/[0.06] hover:border-violet-500/25 hover:shadow-[0_0_35px_rgba(124,58,237,0.12)] rounded-2xl h-full relative';
+
 export default function ProjectSection() {
-  const { theme, setTheme, themes } = useTheme();
+  const { theme, themes } = useTheme();
   const currentTheme = themes[theme];
 
   return (
@@ -76,105 +114,204 @@ export default function ProjectSection() {
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-6xl font-bold text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-5 tracking-tight">
             <span
               className={`bg-gradient-to-r ${currentTheme.textGradient} bg-clip-text text-transparent`}
             >
-              My Projects
+              Featured
             </span>{' '}
-            Right Now
+            Projects
           </h2>
-          <p className="text-white/80 text-xl max-w-4xl mx-auto">
-            Revolutionary applications that transcend current technological limitations and redefine
-            the boundaries of digital reality.
+          <p className="text-white/50 text-base sm:text-lg max-w-xl mx-auto">
+            Real-world applications built with modern technologies, shipped to production.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        {/* Bento grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              className={project.wide ? 'lg:col-span-2' : ''}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              transition={{ duration: 0.7, delay: index * 0.08 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10, scale: 1.02 }}
+              whileHover={{ y: -5 }}
             >
-              <Card className="bg-white/5 border-white/10 backdrop-blur-xl overflow-hidden group hover:bg-white/10 transition-all duration-500 h-full relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20 pointer-events-none" />
-
-                <div className="relative z-10">
-                  <Image
-                    src={project.image || '/placeholder.jpg'}
-                    alt={project.title}
-                    width={500}
-                    height={300}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+              <div className={cardBase}>
+                {/* Image */}
+                <div
+                  className={`relative overflow-hidden ${project.wide ? 'lg:flex lg:flex-row' : ''}`}
+                >
                   <div
-                    className={`absolute inset-0 bg-gradient-to-r ${currentTheme.accent} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
-                  />
-                  <Badge className="absolute top-4 right-4 bg-black/50 text-white border-0 backdrop-blur-sm">
-                    {project.category}
-                  </Badge>
-                </div>
-
-                <CardHeader className="z-10 relative">
-                  <CardTitle className="text-white text-xl">{project.title}</CardTitle>
-                  <CardDescription className="text-white/80 text-base">
-                    {project.description}
-                  </CardDescription>
-                </CardHeader>
-
-                <CardContent className="space-y-4 z-10 relative">
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge
-                        key={techIndex}
-                        className="bg-white/10 text-white/90 border-white/20 hover:bg-white/20 transition-colors"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
+                    className={`relative overflow-hidden flex-shrink-0 ${project.wide ? 'lg:w-[45%]' : ''}`}
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={600}
+                      height={350}
+                      className={`object-cover group-hover:scale-[1.04] transition-transform duration-700 ${
+                        project.wide ? 'w-full h-48 lg:h-full' : 'w-full h-44 sm:h-48'
+                      }`}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050510]/60 via-transparent to-transparent" />
+                    <Badge className="absolute top-3 right-3 bg-black/50 text-white/90 border-0 backdrop-blur-sm text-[10px]">
+                      {project.category}
+                    </Badge>
                   </div>
 
-                  <div className="flex space-x-4">
-                    {/* Experience */}
-                    <Button
-                      asChild
-                      size="sm"
-                      className={`bg-gradient-to-r ${currentTheme.buttonGradient} text-white border-0 shadow-lg flex items-center gap-2`}
-                    >
-                      <a href={project.live} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4" />
-                        Experience
-                      </a>
-                    </Button>
+                  {/* Content */}
+                  <div
+                    className={`flex flex-col ${project.wide ? 'lg:flex-1' : ''} p-5 sm:p-6 space-y-4`}
+                  >
+                    <div>
+                      <h3 className="text-white font-bold text-lg mb-2 leading-snug">
+                        {project.title}
+                      </h3>
+                      <p className="text-white/55 text-sm leading-relaxed">{project.description}</p>
+                    </div>
 
-                    {/* GitHub */}
-                    {project.github && (
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-0.5 rounded-md bg-white/[0.06] border border-white/[0.08] text-white/70 text-[11px] font-medium"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex gap-2.5 pt-1">
                       <Button
                         asChild
                         size="sm"
-                        className="bg-white/10 text-white border-white/20 hover:bg-white/20 transition-colors flex items-center gap-2"
+                        className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white border-0 text-xs h-8"
                       >
-                        <a href={project.github} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-4 h-4" />
-                          GitHub
+                        <a href={project.live} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
+                          Live Demo
                         </a>
                       </Button>
-                    )}
+                      <Button
+                        asChild
+                        size="sm"
+                        variant="outline"
+                        className="bg-white/[0.05] text-white/80 border-white/[0.10] hover:bg-white/[0.10] hover:border-violet-500/30 text-xs h-8"
+                      >
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-3.5 h-3.5 mr-1.5" />
+                          Code
+                        </a>
+                      </Button>
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </motion.div>
           ))}
+
+          {/* Bento CTA slot */}
+          <motion.div
+            className="lg:col-span-2"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.28 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -5 }}
+          >
+            <div className="relative h-full min-h-[110px] rounded-2xl border border-violet-500/20 bg-gradient-to-br from-violet-600/[0.08] to-indigo-600/[0.04] p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 overflow-hidden">
+              <div className="absolute -top-20 -left-20 w-56 h-56 rounded-full bg-violet-600/10 blur-[60px] pointer-events-none" />
+              <div className="relative">
+                <h3 className="text-white font-bold text-lg mb-1">Want to see more?</h3>
+                <p className="text-white/50 text-sm">
+                  All source code is publicly available on GitHub.
+                </p>
+              </div>
+              <Button
+                asChild
+                size="sm"
+                className="relative flex-shrink-0 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white border-0 shadow-lg shadow-violet-500/20"
+              >
+                <a
+                  href="https://github.com/Danielpinedasalazar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="w-4 h-4 mr-2" />
+                  View GitHub
+                </a>
+              </Button>
+            </div>
+          </motion.div>
         </div>
+
+        {/* Currently Building — ML */}
+        <motion.div
+          className="mt-16 pt-12 border-t border-white/[0.06]"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse flex-shrink-0" />
+            <h3 className="text-white font-semibold text-lg tracking-tight">Currently Studying</h3>
+            <span className="text-white/30 text-sm hidden sm:inline">— Machine Learning</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {mlProjects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.07 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -4 }}
+              >
+                <div className="h-full rounded-2xl border border-dashed border-white/[0.10] bg-white/[0.02] hover:bg-white/[0.04] hover:border-violet-500/20 hover:shadow-[0_0_25px_rgba(124,58,237,0.08)] transition-all duration-500 overflow-hidden flex flex-col">
+                  {/* Icon placeholder */}
+                  <div
+                    className={`relative flex items-center justify-center h-28 bg-gradient-to-br ${project.gradient} border-b border-white/[0.05]`}
+                  >
+                    <project.icon className={`w-10 h-10 ${project.iconColor} opacity-60`} />
+                    <span className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-white/[0.06] border border-white/[0.10] text-white/50 text-[10px] font-medium tracking-wide">
+                      In Development
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-4 flex flex-col flex-1 gap-3">
+                    <div>
+                      <h4 className="text-white/90 font-semibold text-sm mb-1.5">
+                        {project.title}
+                      </h4>
+                      <p className="text-white/45 text-xs leading-relaxed">{project.description}</p>
+                    </div>
+                    <div className="flex flex-wrap gap-1 mt-auto">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-0.5 rounded-md bg-white/[0.05] border border-white/[0.07] text-white/55 text-[10px] font-medium"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
