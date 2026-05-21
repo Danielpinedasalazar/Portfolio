@@ -61,6 +61,26 @@ const projects = [
     category: 'Web Development',
     wide: false,
   },
+  {
+    title: 'OncoVision — Breast Cancer AI',
+    description:
+      'Multi-task EfficientNet-B0 fine-tuned on 7,909 breast histology slides (BreaKHis). Simultaneously classifies tumors as benign/malignant and identifies 8 clinical subtypes, with Grad-CAM heatmaps for explainability. Includes AlphaFold2 PALB2 protein structure comparison (WT vs mutant) rendered in an interactive 3D molecular viewer. Served via FastAPI. Best val AUC-ROC: 0.89.',
+    image: '/oncovision.jpeg',
+    technologies: [
+      'PyTorch',
+      'EfficientNet-B0',
+      'Grad-CAM',
+      'FastAPI',
+      'AlphaFold2',
+      'Python',
+      'TailwindCSS',
+      'NGL Viewer',
+    ],
+    live: 'https://huggingface.co/spaces/DanielP19/oncovision',
+    github: 'https://github.com/Danielpinedasalazar/hackaton.git',
+    category: 'AI & Healthcare',
+    wide: true,
+  },
 ];
 
 const mlProjects = [
